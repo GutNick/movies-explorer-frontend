@@ -1,0 +1,226 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+  width: 100%;
+  height: 74px;
+  margin: 0;
+  padding: 18px 70px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header__logo {
+  margin-right: auto;
+  display: block;
+}
+
+.header__nav {
+  position: absolute;
+  display: flex;
+}
+
+.header__link {
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__buttons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.header__button {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__button_type_login {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000;
+  padding: 8px 20px;
+  background: #3DDC84;
+  border-radius: 3px;
+  margin-left: 30px;
+}
+
+.header__button_type_account {
+  display: flex;
+  align-items: center;
+  padding: 3px 3px 3px 11px;
+}
+
+.header__icon {
+  width: 24px;
+  height: 24px;
+  background: #313131;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7px;
+}
+
+/*Временные стили для соответсвия макету*/
+.header__sign .header__button_type_account, .header__sign .header__nav {
+  display: none;
+}
+
+.header__regular .header__button_type_login, .header__regular .header__button_type_register {
+  display: none;
+}
+
+.header__button_type_burger {
+  background-image: url("../../images/burger__open-button.svg");
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: none;
+  margin-left: auto;
+}
+
+.header__button_type_burger-close {
+  background-image: url("../../images/burger__close-button.svg");
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header__burger {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .3);
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.header__burger_open {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+.header__burger-container {
+  width: 520px;
+  height: 100%;
+  padding: 159px 0 90px;
+  background-color: #202020;
+  box-sizing: border-box;
+  float: right;
+  position: relative;
+}
+
+.header__button_type_burger-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+
+.header__nav-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.header__link-burger {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  margin-bottom: 28px;
+  text-decoration: none;
+}
+
+.header__link-burger_active {
+  border-bottom: 2px solid #fff;
+  margin-bottom: 26px;
+}
+
+@media (max-width: 1279px) {
+  .header {
+    padding: 15px 30px;
+  }
+
+  .header__button_type_account {
+    margin-top: auto;
+  }
+
+  .header__button_type_burger {
+    display: block;
+  }
+
+  .header__nav, .header__buttons {
+    display: none;
+  }
+  .header__burger {
+    display: block;
+  }
+  .header__button_type_account {
+    font-size: 13px;
+    line-height: 12px;
+  }
+  .header__sign .header__button_type_account {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 15px 14px;
+  }
+  .header__button_type_register {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .header__button_type_login {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 5px 12px;
+    margin-left: 14px;
+  }
+  .header__burger-container {
+    width: 100%;
+    padding: 144px 0 46px;
+  }
+  .header__button_type_burger {
+    width: 40px;
+    height: 43px;
+    background-position: center;
+    background-size: contain;
+  }
+  .header__button_type_burger-close {
+    top: 12px;
+    right: 12px;
+  }
+  .header__link-burger {
+    margin-bottom: 24px;
+  }
+  .header__link-burger_active {
+    margin-bottom: 22px;
+  }
+}
