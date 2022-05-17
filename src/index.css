@@ -1,0 +1,7 @@
+@import './vendor/normalize.css';
+@import './vendor/fonts/fonts.css';
+
+:root {
+  font-family: 'Inter', Arial, sans-serif;
+  min-height: 100vh;
+}

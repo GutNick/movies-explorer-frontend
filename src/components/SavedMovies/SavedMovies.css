@@ -1,0 +1,32 @@
+.saved-movies {
+  min-height: calc(100vh - 246px);
+  background: #202020;
+}
+.saved-movies .movies-card__save-button {
+  display: none;
+}
+.saved-movies .movies-card__saved-icon {
+  display: none;
+}
+.saved-movies .movies-card:hover .movies-card__delete-button {
+  display: block;
+}
+.saved-movies .movies-card-list__more {
+  display: none;
+}
+
+@media (max-width: 1279px) {
+  .saved-movies {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .saved-movies {
+    padding: 0 10px;
+    min-height: calc(100vh - 344px);
+  }
+  .saved-movies .movies-card__delete-button {
+    display: block;
+  }
+}

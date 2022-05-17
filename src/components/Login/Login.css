@@ -1,0 +1,13 @@
+.login {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .login {
+    padding: 0 30px;
+  }
+}

@@ -1,0 +1,17 @@
+.movies {
+  min-height: calc(100vh - 246px);
+  background: #202020;
+}
+
+@media (max-width: 1279px) {
+  .movies {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .movies {
+    padding: 0 10px;
+    min-height: calc(100vh - 344px);
+  }
+}
