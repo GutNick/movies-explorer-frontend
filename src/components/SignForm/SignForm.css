@@ -51,6 +51,9 @@
   cursor: pointer;
   height: 45px;
 }
+.sign-form__button:disabled {
+  background: #cfcfcf;
+}
 .sign-form__description {
   font-weight: 400;
   font-size: 14px;

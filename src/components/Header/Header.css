@@ -76,15 +76,6 @@
   margin-left: 7px;
 }
 
-/*Временные стили для соответсвия макету*/
-.header__sign .header__button_type_account, .header__sign .header__nav {
-  display: none;
-}
-
-.header__regular .header__button_type_login, .header__regular .header__button_type_register {
-  display: none;
-}
-
 .header__button_type_burger {
   background-image: url("../../images/burger__open-button.svg");
   width: 44px;
