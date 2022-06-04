@@ -21,7 +21,7 @@ function Header(props) {
             <NavLink to="/saved-movies" className="header__link" activeClassName="header__link_active">Сохранённые
               фильмы</NavLink>
           </nav>
-          <div className="header__buttons">
+          <div className="header__buttons header__buttons_logged-in">
             <Link to='/profile' className="header__button header__button_type_account">Аккаунт
               <span className="header__icon">
             <img src={ProfileIcon} alt="Иконка профиля"/>

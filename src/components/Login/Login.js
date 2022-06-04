@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import SignHeader from "../SignHeader/SignHeader";
 import SignForm from "../SignForm/SignForm";
 import InformationPopup from "../InformationPopup/InformationPopup";
+import { isEmail } from 'validator';
 import "./Login.css";
 
 function Login(props) {
@@ -12,16 +13,20 @@ function Login(props) {
   const [errorPassword, setErrorPassword] = useState('');
 
   useEffect(() => {
-     if (errorPassword !== "" || errorEmail !== "") {
-      setIsSubmitDisabled(true);
+    if (email !== "" && password !== "") {
+      if (errorPassword !=="" || errorEmail !=="") {
+        setIsSubmitDisabled(true)
+      } else {
+        setIsSubmitDisabled(false)
+      }
     } else {
-      setIsSubmitDisabled(false);
+      setIsSubmitDisabled(true)
     }
-  }, [password, email])
+  }, [email, password])
 
   function validation(e) {
     if (e.target.name === "userEmail") {
-      setErrorEmail(e.target.validationMessage);
+      isEmail(e.target.value) ? setErrorEmail(e.target.validationMessage) : setErrorEmail('Введите валидный email');
       setEmail(e.target.value);
     } else {
       setPassword(e.target.value);

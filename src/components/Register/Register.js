@@ -3,6 +3,7 @@ import SignHeader from "../SignHeader/SignHeader";
 import SignForm from "../SignForm/SignForm";
 import "./Register.css";
 import InformationPopup from "../InformationPopup/InformationPopup";
+import { isEmail } from 'validator';
 
 function Register(props) {
   const [name, setName] = useState('');
@@ -14,16 +15,20 @@ function Register(props) {
   const [errorPassword, setErrorPassword] = useState('');
 
   useEffect(() => {
-    if (errorPassword !== "" || errorEmail !== "" || errorName !== "") {
-      setIsSubmitDisabled(true);
+    if (name !== "" && email !== "" && password !== "") {
+      if (errorPassword !=="" || errorEmail !=="" || errorName !=="") {
+        setIsSubmitDisabled(true)
+      } else {
+        setIsSubmitDisabled(false)
+      }
     } else {
-      setIsSubmitDisabled(false);
+      setIsSubmitDisabled(true)
     }
-  }, [password, email, name])
+  }, [name, email, password])
 
   function validation(e) {
     if (e.target.name === "userEmail") {
-      setErrorEmail(e.target.validationMessage);
+      isEmail(e.target.value) ? setErrorEmail(e.target.validationMessage) : setErrorEmail('Введите валидный email');
       setEmail(e.target.value);
     } else if (e.target.name === "userName") {
       e.target.validity.patternMismatch ? setErrorName('Можно использовать только латиницу, кириллицу, пробел или дефис.') : setErrorName(e.target.validationMessage);

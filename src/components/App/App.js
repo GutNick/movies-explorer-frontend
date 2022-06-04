@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import {Route, Switch, useHistory, useLocation} from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
@@ -113,10 +113,9 @@ function App() {
     setSearchComplete(true);
   }
 
-  function filterMoviesByDuration(movies, setState, searchValue) {
+  function filterMoviesByDuration(movies, setState, searchValue, shortMovies) {
     setSearchComplete(false);
-    const shortMovies = localStorage.getItem('shortMovies');
-    shortMovies === "true" ?
+    shortMovies === true ?
       setState(movies.filter((movie) => {
         return searchValue !== '' ? movie.nameRU.toLowerCase().includes(searchValue) && movie.duration <= 40 : movie.duration <= 40;
       })) :
@@ -206,6 +205,7 @@ function App() {
     setAllMovies([]);
     setSavedMovies([]);
     setFindMovies([]);
+    setFindSavedMovies([]);
   }
 
   function handleUpdateUser(name, email) {

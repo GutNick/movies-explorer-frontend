@@ -165,7 +165,7 @@
     display: block;
   }
 
-  .header__nav, .header__buttons {
+  .header__nav, .header__buttons_logged-in {
     display: none;
   }
   .header__burger {

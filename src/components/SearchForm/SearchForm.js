@@ -16,12 +16,14 @@ function SearchForm(props) {
   }
 
   useEffect(() => {
-    if (localStorage.getItem('shortMovies')) {
-      localStorage.getItem('shortMovies') === "true" ?
-        setChecked(true) :
-        setChecked(false);
-    } else {
-      localStorage.setItem('shortMovies', checked.toString());
+    if (!props.isSavedMovies) {
+      if (localStorage.getItem('shortMovies')) {
+        localStorage.getItem('shortMovies') === "true" ?
+          setChecked(true) :
+          setChecked(false);
+      } else {
+        localStorage.setItem('shortMovies', checked.toString());
+      }
     }
     if (localStorage.getItem('searchValue')) {
       if (!props.isSavedMovies) {
@@ -35,12 +37,19 @@ function SearchForm(props) {
 
   useEffect(() => {
     if (props.isSavedMovies) {
-      props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue);
+      if (searchValue === '') {
+        props.setFindSavedMovies(props.allMovies)
+      } else {
+        props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue, checked);
+      }
     }
   }, [props.allMovies])
 
   useEffect(() => {
-    localStorage.setItem('shortMovies', checked.toString());
+    if (!props.isSavedMovies) {
+      localStorage.setItem('shortMovies', checked.toString());
+    }
+    setError('')
   }, [checked])
 
   useEffect(() => {
@@ -50,23 +59,27 @@ function SearchForm(props) {
         props.searchMovies(props.allMovies, props.setFindMovies)
       }
     }
-    if (props.isSavedMovies) {
-      props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue);
+    if (props.isSavedMovies && searchValue !== '') {
+      props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue, checked);
     }
   }, [checked])
+
+  useEffect(() => {
+    if (searchValue === '' && props.isSavedMovies) {
+      props.setFindSavedMovies(props.allMovies)
+    }
+  }, [searchValue])
 
   function search(evt) {
     evt.preventDefault();
     if (searchValue === '') {
-      props.isSavedMovies ?
-        props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue) :
       setError('Нужно ввести ключевое слово');
       return;
     }
     props.setIsLoading(true);
     props.setSearchComplete(false);
     if (props.isSavedMovies) {
-      props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue);
+      props.filterMoviesByDuration(props.allMovies, props.setFindSavedMovies, searchValue, checked);
     } else {
       localStorage.setItem('searchValue', searchValue);
     }

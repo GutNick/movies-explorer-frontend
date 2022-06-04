@@ -16,7 +16,7 @@ function SavedMovies(props) {
         <SearchForm
           searchMovies={props.searchMovies}
           isLoading={props.isLoading}
-          findMovies={props.findMovies}
+          findMovies={props.findSavedMovies}
           isSavedMovies={true}
           allMovies={props.savedMovies}
           setIsLoading={props.setIsLoading}

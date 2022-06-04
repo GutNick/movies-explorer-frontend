@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 import InformationPopup from "../InformationPopup/InformationPopup";
+import { isEmail } from 'validator';
 import "./Profile.css";
 
 function Profile(props) {
@@ -24,8 +25,8 @@ function Profile(props) {
       e.target.validity.patternMismatch ? setErrorName('Можно использовать только латиницу, кириллицу, пробел или дефис.') : setErrorName(e.target.validationMessage);
       setName(e.target.value);
     } else {
+      isEmail(e.target.value) ? setErrorEmail(e.target.validationMessage) : setErrorEmail('Введите валидный email');
       setEmail(e.target.value);
-      setErrorEmail(e.target.validationMessage);
     }
   }
 
