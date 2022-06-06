@@ -6,14 +6,35 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
 import "./SavedMovies.css";
 
-function SavedMovies() {
+function SavedMovies(props) {
   return (
     <>
-      <Header/>
+      <Header
+        loggedIn={props.loggedIn}
+      />
       <section className="saved-movies">
-        <SearchForm/>
-        <Preloader/>
-        <MoviesCardList/>
+        <SearchForm
+          searchMovies={props.searchMovies}
+          isLoading={props.isLoading}
+          findMovies={props.findSavedMovies}
+          isSavedMovies={true}
+          allMovies={props.savedMovies}
+          setIsLoading={props.setIsLoading}
+          setSearchComplete={props.setSearchComplete}
+          setFindSavedMovies={props.setFindSavedMovies}
+          filterMoviesByDuration={props.filterMoviesByDuration}
+        />
+        <Preloader
+          isLoading={props.isLoading}
+        />
+        <MoviesCardList
+          isLoading={props.isLoading}
+          findMovies={props.findSavedMovies}
+          setFindSavedMovies={props.setFindSavedMovies}
+          savedMovies={props.savedMovies}
+          isSavedMovies={true}
+          deleteMovie={props.deleteMovie}
+        />
       </section>
       <Footer/>
     </>

@@ -48,7 +48,7 @@
   z-index: 10;
   padding: 20px;
   background-color: #202020;
-  display: none;
+  box-sizing: border-box;
 }
 
 .preloader__container {
@@ -87,4 +87,8 @@
   z-index: 10;
   background: #FF6838;
   animation: preloader-inside-red 1s ease-in-out infinite;
+}
+
+.preloader_hidden {
+  display: none;
 }

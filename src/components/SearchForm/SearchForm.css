@@ -90,6 +90,17 @@
   cursor: pointer;
 }
 
+.search-form__error {
+  color: #ff0000;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 56px;
+}
+
 @media (max-width: 1279px) {
   .search-form {
     padding: 86px 0 61px;
