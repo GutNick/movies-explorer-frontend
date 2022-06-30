@@ -19,4 +19,5 @@
 3. Запустить приложение > npm start
 
 Домен сервера [https://api.movies.gutman.nomoredomains.work/](https://api.movies.gutman.nomoredomains.work/)  
-Домен приложения [https://movies.gutman.nomoredomains.xyz/](https://movies.gutman.nomoredomains.xyz/)
+Домен приложения [https://movies.gutman.nomoredomains.xyz/](https://movies.gutman.nomoredomains.xyz/)  
+Репозиторий backend части [https://github.com/GutNick/movies-explorer-api](https://github.com/GutNick/movies-explorer-api)
